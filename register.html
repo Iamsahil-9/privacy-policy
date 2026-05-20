@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — ClickMint</title>
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <div class="popup-overlay active">
+      <div class="popup-box">
+        <h2>Create ClickMint Account</h2>
+        <p>Register first, then login inside the ClickMint app.</p>
+
+        <input id="name" placeholder="Enter your name" />
+        <input id="phone" placeholder="Enter 10-digit phone" maxlength="10" />
+        <input
+          id="pin"
+          placeholder="Create 4-digit PIN"
+          maxlength="4"
+          type="password"
+        />
+        <input id="referralCode" placeholder="Referral code optional" />
+
+        <button class="popup-download" id="registerBtn">Create Account</button>
+
+        <p
+          id="msg"
+          style="margin-top: 15px; color: #facc15; font-weight: 700"
+        ></p>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE = "https://clickmint-backend-ftdj.onrender.com/api";
+
+      const registerBtn = document.getElementById("registerBtn");
+      const msg = document.getElementById("msg");
+      const referralInput = document.getElementById("referralCode");
+
+      // REFERRAL CODE AUTO FILL
+      const urlParams = new URLSearchParams(window.location.search);
+      const refCode = urlParams.get("ref");
+
+      if (refCode) {
+        referralInput.value = refCode.trim();
+        referralInput.readOnly = true;
+        referralInput.style.opacity = "0.8";
+        referralInput.style.cursor = "not-allowed";
+      }
+
+      registerBtn.addEventListener("click", async () => {
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const pin = document.getElementById("pin").value.trim();
+        const referralCode = referralInput.value.trim();
+
+        if (!name) return alert("Please enter your name");
+
+        if (!/^[0-9]{10}$/.test(phone)) {
+          return alert("Please enter valid 10-digit phone number");
+        }
+
+        if (!/^[0-9]{4}$/.test(pin)) {
+          return alert("Please create valid 4-digit PIN");
+        }
+
+        try {
+          registerBtn.disabled = true;
+          registerBtn.innerHTML = "Creating Account...";
+
+          const res = await fetch(`${API_BASE}/auth/register`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              phone,
+              pin,
+              referralCode,
+            }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            throw new Error(data?.message || "Registration failed");
+          }
+
+          msg.innerHTML = `
+        <div style="
+          background:rgba(34,197,94,0.10);
+          border:1px solid rgba(34,197,94,0.25);
+          padding:18px;
+          border-radius:20px;
+          color:#bbf7d0;
+          line-height:1.8;
+        ">
+          <div style="font-size:18px;font-weight:800;margin-bottom:10px;">
+            🎉 Account Created Successfully
+          </div>
+
+          <div style="font-size:14px;color:#d1fae5;margin-bottom:18px;">
+            Your ClickMint account is ready.<br>
+            Now download the app and login using your phone number & PIN.
+          </div>
+
+          <a
+            href="https://www.mediafire.com/file/fun7jp6vn8pc34b/application-e5321c00-86b1-450c-8c69-565c4df41dfa.apk/file"
+            target="_blank"
+            style="
+              display:inline-block;
+              width:100%;
+              text-align:center;
+              padding:16px 20px;
+              border-radius:16px;
+              background:linear-gradient(135deg,#facc15,#f97316);
+              color:#111827;
+              font-size:15px;
+              font-weight:900;
+              text-decoration:none;
+              box-shadow:0 10px 25px rgba(249,115,22,0.35);
+            "
+          >
+            ⬇ Download ClickMint APK
+          </a>
+        </div>
+      `;
+
+          document.getElementById("name").value = "";
+          document.getElementById("phone").value = "";
+          document.getElementById("pin").value = "";
+
+          if (!refCode) {
+            referralInput.value = "";
+          }
+        } catch (err) {
+          alert(err.message || "Something went wrong");
+        } finally {
+          registerBtn.disabled = false;
+          registerBtn.innerHTML = "Create Account";
+        }
+      });
+    </script>
+  </body>
+</html>
