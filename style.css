@@ -1410,3 +1410,129 @@
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
+  #cursor,
+  #cursor-ring {
+    display: none !important;
+  }
+
+  nav {
+    padding: 14px 20px !important;
+  }
+
+  .nav-logo {
+    font-size: 20px !important;
+  }
+
+  .nav-cta {
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .hero {
+    padding: 105px 20px 45px !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .hero-inner {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .hero h1 {
+    font-size: 48px !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1px !important;
+    word-break: normal !important;
+    max-width: 100% !important;
+  }
+
+  .hero h1 em {
+    display: block !important;
+  }
+
+  .hero-desc {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-bottom: 36px !important;
+  }
+
+  .btn-gold,
+  .btn-ghost {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 16px !important;
+    font-size: 15px !important;
+  }
+
+  .trust-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .trust-item {
+    font-size: 12px !important;
+  }
+
+  .phone-wrap {
+    display: none !important;
+  }
+
+  .stats {
+    padding: 0 20px 65px !important;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stat-cell {
+    padding: 24px 18px !important;
+  }
+
+  .stat-num {
+    font-size: 34px !important;
+    letter-spacing: -1px !important;
+  }
+
+  .section-wrap,
+  .cta {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .s-title {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+  }
+
+  .features {
+    padding: 65px 0 !important;
+  }
+
+  .feat {
+    padding: 24px !important;
+  }
+
+  .cta-box {
+    padding: 50px 22px !important;
+  }
+
+  .cta-box h2 {
+    font-size: 34px !important;
+  }
+}
