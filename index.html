@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- CURSOR -->
@@ -24,7 +24,7 @@
         <li><a href="#how">How it Works</a></li>
         <li><a href="#trust">Trust</a></li>
       </ul>
-      <a href="https://www.mediafire.com/file/fun7jp6vn8pc34b/application-e5321c00-86b1-450c-8c69-565c4df41dfa.apk/file" class="nav-cta">⬇ Download APK</a>
+      <a href="#" class="nav-cta openDownloadPopup">⬇ Download APK</a>
     </nav>
 
     <!-- HERO -->
@@ -54,7 +54,9 @@
           </p>
 
           <div class="hero-actions">
-            <a href="https://www.mediafire.com/file/fun7jp6vn8pc34b/application-e5321c00-86b1-450c-8c69-565c4df41dfa.apk/file" class="btn-gold"> ⬇ &nbsp;Download APK </a>
+            <a href="#" class="btn-gold openDownloadPopup">
+              ⬇ &nbsp;Download APK
+            </a>
             <a href="#features" class="btn-ghost"> Explore Features → </a>
           </div>
 
@@ -344,8 +346,8 @@
 
         <div class="cta-buttons">
           <a
-            href="https://www.mediafire.com/file/fun7jp6vn8pc34b/application-e5321c00-86b1-450c-8c69-565c4df41dfa.apk/file"
-            class="btn-gold"
+            href="#"
+            class="btn-gold openDownloadPopup"
             style="font-size: 18px; padding: 20px 40px"
           >
             ⬇ &nbsp;Download APK — Free
@@ -356,6 +358,27 @@
         </div>
       </div>
     </section>
+
+    <div class="popup-overlay" id="downloadPopup">
+      <div class="popup-box">
+        <button class="popup-close" id="closePopup">×</button>
+
+        <h2>Get Started with ClickMint</h2>
+        <p>Create your account first, then login inside the app.</p>
+
+        <a
+          href="https://www.mediafire.com/file/fun7jp6vn8pc34b/application-e5321c00-86b1-450c-8c69-565c4df41dfa.apk/file"
+          class="popup-download"
+          target="_blank"
+        >
+          ⬇ Download APK
+        </a>
+
+        <div class="popup-actions">
+          <a href="register.html">Create Account</a>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -506,6 +529,44 @@
         },
         { threshold: 0.5 },
       );
+
+      const popup = document.getElementById("downloadPopup");
+      const closePopup = document.getElementById("closePopup");
+
+      function openPopup() {
+        popup.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDownloadPopup() {
+        popup.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".openDownloadPopup").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openPopup();
+        });
+      });
+
+      closePopup.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeDownloadPopup();
+      });
+
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+          closeDownloadPopup();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeDownloadPopup();
+        }
+      });
     </script>
   </body>
 </html>
