@@ -321,12 +321,25 @@ nav {
 
 .hero h1 {
   font-family: "Syne", sans-serif;
-  font-size: 80px;
+  font-size: 92px;
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: -2px;
+  line-height: 0.98;
+  letter-spacing: -3px;
   margin-bottom: 28px;
   animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.hero-micro {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: -20px 0 36px;
+  animation: fadeUp 0.7s 0.35s ease both;
+}
+.hero-micro span {
+  font-size: 13px;
+  color: var(--body);
+  font-weight: 500;
 }
 
 .hero h1 em {
@@ -397,6 +410,23 @@ nav {
   box-shadow:
     0 0 50px rgba(245, 200, 66, 0.5),
     0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.btn-pulse {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 30px rgba(245, 200, 66, 0.35),
+      0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 48px rgba(245, 200, 66, 0.6),
+      0 8px 30px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .btn-ghost {
@@ -515,126 +545,159 @@ nav {
   z-index: 5;
 }
 
-/* Mini game preview inside phone */
-.phone-game {
+/* Authentic app home-screen preview inside phone */
+.app-screen {
   flex: 1;
-  background: linear-gradient(180deg, #0f0728 0%, #150a35 100%);
+  background: linear-gradient(180deg, #0f0a1e 0%, #150a2c 100%);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 12px 8px 8px;
+  padding: 16px 14px 10px;
+  gap: 14px;
 }
 
-.phone-stars {
-  position: absolute;
-  inset: 0;
-}
-.phone-star {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  animation: twinkle var(--t, 2s) ease-in-out infinite;
-  animation-delay: var(--d, 0s);
-}
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: var(--o, 0.3);
-  }
-  50% {
-    opacity: 0.05;
-  }
-}
-
-.phone-score-bar {
-  width: 100%;
+.app-topbar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  margin-bottom: 4px;
-  z-index: 2;
 }
-.phone-score-label {
-  font-size: 8px;
-  color: #9d4edd;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-.phone-score-val {
-  font-size: 14px;
-  color: #fff;
-  font-weight: 900;
-}
-
-/* Bubble grid */
-.phone-bubbles {
-  width: 100%;
-  z-index: 2;
+.app-greeting {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  align-items: center;
+  line-height: 1.3;
 }
-.bubble-row {
-  display: flex;
-  gap: 3px;
+.app-hello {
+  font-size: 10px;
+  color: var(--muted);
 }
-.bub {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  box-shadow: 0 0 8px currentColor;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
+.app-user {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  font-family: "Syne", sans-serif;
 }
-.bub::after {
-  content: "";
-  position: absolute;
-  top: 15%;
-  left: 18%;
-  width: 35%;
-  height: 22%;
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 50%;
+.app-coin-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 200, 66, 0.22),
+    rgba(245, 200, 66, 0.08)
+  );
+  border: 1px solid rgba(245, 200, 66, 0.35);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 999px;
 }
 
-/* Shooter at bottom */
-.phone-shooter {
-  margin-top: auto;
+.app-cats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.app-cat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 10px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  z-index: 2;
-  padding-bottom: 6px;
+  text-align: center;
 }
-.shooter-barrel {
-  width: 8px;
-  height: 22px;
-  background: linear-gradient(180deg, #7b5ea7, #4a0080);
-  border-radius: 4px;
+.app-cat span {
+  font-size: 8px;
+  color: var(--body);
+  line-height: 1.2;
+  font-weight: 600;
 }
-.shooter-bubble {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #d8abff, #9d4edd, #4a0080);
-  box-shadow: 0 0 10px rgba(157, 78, 221, 0.7);
-  position: relative;
+.app-cat-icon {
+  font-size: 16px;
 }
-.shooter-bubble::after {
-  content: "";
-  position: absolute;
-  top: 15%;
-  left: 18%;
-  width: 35%;
-  height: 22%;
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 50%;
+.app-cat-active {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 200, 66, 0.2),
+    rgba(139, 92, 246, 0.12)
+  );
+  border-color: rgba(245, 200, 66, 0.4);
+}
+.app-cat-active span {
+  color: var(--gold);
+}
+
+.app-invite {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 200, 66, 0.16),
+    rgba(139, 92, 246, 0.1)
+  );
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-invite div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.app-invite strong {
+  font-size: 11px;
+  color: #fff;
+}
+.app-invite span {
+  font-size: 8px;
+  color: var(--muted);
+}
+.app-invite-arrow {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.app-game-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.app-game-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 12px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+}
+.app-game-tile span {
+  font-size: 8px;
+  color: var(--body);
+  font-weight: 600;
+}
+
+.app-bottom-nav {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 10px 0;
+}
+.app-nav-item {
+  font-size: 15px;
+  opacity: 0.5;
+}
+.app-nav-active {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(245, 200, 66, 0.6));
 }
 
 /* Floating badge on phone */
@@ -1183,8 +1246,6 @@ footer {
   font-size: 13px;
 }
 
-
-
 /* ── ANIMATIONS ────────────────────────────────────────── */
 @keyframes fadeUp {
   from {
@@ -1319,6 +1380,147 @@ footer {
   color: var(--body);
   line-height: 1.75;
   font-size: 15px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NEW: FEATURE TICKER (signature strip, below nav)
+   ═══════════════════════════════════════════════════════ */
+.ticker-wrap {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 490;
+  overflow: hidden;
+  background: rgba(139, 92, 246, 0.06);
+  border-bottom: 1px solid var(--border);
+  padding: 9px 0;
+  backdrop-filter: blur(12px);
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: max-content;
+  white-space: nowrap;
+  animation: tickerScroll 26s linear infinite;
+}
+.ticker-item {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--body);
+  letter-spacing: 0.2px;
+}
+.ticker-dot {
+  color: var(--gold);
+  opacity: 0.6;
+}
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.hero {
+  padding-top: 176px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NEW: "NEW" feature tag variant
+   ═══════════════════════════════════════════════════════ */
+.feat-tag-new {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: var(--purple2);
+  margin-bottom: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NEW: CTA content + QR layout
+   ═══════════════════════════════════════════════════════ */
+.cta-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  text-align: left;
+}
+.cta-content h2,
+.cta-content p {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+.cta-content .cta-buttons {
+  justify-content: flex-start;
+}
+.cta-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 22px;
+}
+.cta-qr img {
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  display: block;
+}
+.cta-qr span {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════
+   NEW: Desktop floating sticky download button
+   ═══════════════════════════════════════════════════════ */
+.desktop-sticky-cta {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 800;
+  background: var(--gold);
+  color: #000;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow:
+    0 0 30px rgba(245, 200, 66, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.desktop-sticky-cta.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.desktop-sticky-cta:hover {
+  box-shadow:
+    0 0 42px rgba(245, 200, 66, 0.55),
+    0 12px 34px rgba(0, 0, 0, 0.55);
+}
+@media (max-width: 768px) {
+  .desktop-sticky-cta {
+    display: none;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1777,11 +1979,53 @@ footer {
   }
 }
 
+/* ═══════════════════════════════════════════════════════
+   NEW: focus states for accessibility / SEO-adjacent UX
+   ═══════════════════════════════════════════════════════ */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
   border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .ticker-wrap {
+    top: 64px;
+  }
+  .hero {
+    padding-top: 128px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ticker-track {
+    animation-duration: 18s;
+  }
+  .ticker-item {
+    font-size: 11px;
+  }
+  .ticker-wrap {
+    top: 58px;
+    padding: 7px 0;
+  }
+  .hero {
+    padding-top: 112px !important;
+  }
+  .cta-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .cta-content h2,
+  .cta-content p {
+    text-align: center;
+  }
+  .cta-content .cta-buttons {
+    justify-content: center;
+  }
+  .cta-qr {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
