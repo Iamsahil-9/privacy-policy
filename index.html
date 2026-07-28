@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#04040a" />
     <meta
       name="description"
       content="Play games, complete tasks, earn reward coins and redeem rewards with ClickMint. Download the latest Android APK now."
@@ -14,22 +15,34 @@
       content="clickmint, click mint, earn money app, reward app, android earning app, play games earn money, task earning app, clickmint apk"
     />
     <meta name="author" content="ClickMint" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
 
     <link rel="canonical" href="https://www.clickmint.live/" />
     <link rel="icon" type="image/png" href="/clickmint.webp" />
+    <link rel="apple-touch-icon" href="/clickmint.webp" />
+
+    <!-- Preconnect for faster font + asset loading (Core Web Vitals) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.clickmint.live/" />
+    <meta property="og:site_name" content="ClickMint" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:title" content="ClickMint - Play. Earn. Win." />
     <meta
       property="og:description"
       content="Play games, complete missions and earn rewards with ClickMint."
     />
-
     <meta
       property="og:image"
       content="https://www.clickmint.live/og-image.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="ClickMint - Play games and earn reward coins"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -45,6 +58,7 @@
     />
     <link rel="stylesheet" href="style.css" />
 
+    <!-- App schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -53,24 +67,99 @@
         "applicationCategory": "GameApplication",
         "operatingSystem": "Android",
         "description": "Play games, complete tasks and earn rewards with ClickMint.",
-        "url": "https://www.clickmint.live"
+        "url": "https://www.clickmint.live",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        }
       }
     </script>
 
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5VB08GXGZ8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ClickMint",
+        "url": "https://www.clickmint.live",
+        "logo": "https://www.clickmint.live/clickmint.webp",
+        "email": "clickmint38@gmail.com"
+      }
+    </script>
 
-  gtag('config', 'G-5VB08GXGZ8');
-</script>
+    <!-- FAQ schema (mirrors the visible FAQ section below) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is ClickMint free to download and play?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ClickMint is 100% free to download and play. There's no subscription or upfront cost — you install the APK and start playing right away."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I earn reward coins on ClickMint?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You earn reward coins by playing mini games like Bubble Blitz and Chess, completing daily missions, using the spin & scratch wheel, and watching rewarded ads. Each activity has its own coin payout and daily limits."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ClickMint available on iOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ClickMint currently ships as an Android APK. An iOS version is not available yet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ClickMint currently in beta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ClickMint is in an early launch / beta stage, which is why the app does not display fake reviews or fake ratings. Real user feedback will be published once verified users start using ClickMint."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I play chess with friends on ClickMint?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ClickMint includes a real-time multiplayer Chess game where you can challenge your friends directly from the website or app."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-5VB08GXGZ8"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-5VB08GXGZ8");
+    </script>
   </head>
   <body>
     <!-- CURSOR -->
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- NAV -->
     <nav>
@@ -79,6 +168,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#how">How it Works</a></li>
         <li><a href="#trust">Trust</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
       <a href="#" class="nav-cta openDownloadPopup">⬇ Download APK</a>
     </nav>
@@ -199,11 +289,11 @@
           <div class="stat-label">Android APK</div>
         </div>
         <div class="stat-cell reveal">
-          <div class="stat-num">15+</div>
+          <div class="stat-num" data-count="15" data-suffix="+">0</div>
           <div class="stat-label">Planned Reward Games</div>
         </div>
         <div class="stat-cell reveal">
-          <div class="stat-num">2026</div>
+          <div class="stat-num" data-count="2026">0</div>
           <div class="stat-label">Launch Version</div>
         </div>
       </div>
@@ -299,6 +389,32 @@
               dark-space aesthetics.
             </p>
           </div>
+
+          <div class="feat reveal">
+            <div class="feat-icon-wrap">♟️</div>
+            <h3>Play Chess with Friends</h3>
+            <p>
+              Challenge your friends in real-time multiplayer chess. No rewards
+              yet. Just play and enjoy.
+            </p>
+            <a
+              href="https://clickmint-chess.netlify.app/"
+              target="_blank"
+              rel="noopener"
+              class="feat-cta"
+            >
+              Play Now →
+            </a>
+          </div>
+
+          <div class="feat reveal">
+            <div class="feat-icon-wrap">🏅</div>
+            <h3>Leaderboard & Ranks</h3>
+            <p>
+              Track where you stand against other players and chase the top of
+              the weekly leaderboard as you earn.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -386,6 +502,88 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="section-wrap">
+        <div class="reveal" style="text-align: center">
+          <div class="s-label">FAQ</div>
+          <h2 class="s-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              <span>Is ClickMint free to download and play?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. ClickMint is 100% free to download and play. There's no
+                subscription or upfront cost — you install the APK and start
+                playing right away.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              <span>How do I earn reward coins on ClickMint?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                You earn coins by playing mini games like Bubble Blitz and
+                Chess, completing daily missions, using the spin & scratch
+                wheel, and watching rewarded ads. Each activity has its own
+                payout and daily limits.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              <span>Is ClickMint available on iOS?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                ClickMint currently ships as an Android APK. An iOS version is
+                not available yet.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              <span>Is ClickMint currently in beta?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. ClickMint is in an early launch / beta stage, which is why
+                we don't display fake reviews or fake ratings. Real user
+                feedback will be published once verified users start using the
+                app.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              <span>Can I play chess with friends on ClickMint?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. ClickMint includes a real-time multiplayer Chess game where
+                you can challenge your friends directly from the website or app.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA / DOWNLOAD -->
     <section class="cta" id="download">
       <div class="cta-box">
@@ -434,6 +632,11 @@
           <a href="register.html">Create Account</a>
         </div>
       </div>
+    </div>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-sticky-cta">
+      <a href="#" class="btn-gold openDownloadPopup">⬇ Download APK — Free</a>
     </div>
 
     <!-- FOOTER -->
@@ -548,17 +751,23 @@
       );
       document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-      /* ── Nav scroll tint ── */
+      /* ── Nav scroll tint + scroll progress ── */
+      const scrollProgressEl = document.getElementById("scrollProgress");
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         nav.style.background =
           window.scrollY > 60 ? "rgba(4,4,10,0.92)" : "rgba(4,4,10,0.6)";
+
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+        scrollProgressEl.style.width = pct + "%";
       });
 
       /* ── Animated counter ── */
       function animCounter(el, target, suffix = "") {
         let start = 0;
-        const dur = 2000,
+        const dur = 1600,
           step = 16;
         const inc = target / (dur / step);
         const t = setInterval(() => {
@@ -585,6 +794,27 @@
         },
         { threshold: 0.5 },
       );
+      document
+        .querySelectorAll(".stat-num[data-count]")
+        .forEach((el) => counterObs.observe(el));
+
+      /* ── FAQ accordion ── */
+      document.querySelectorAll(".faq-q").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item.open").forEach((openItem) => {
+            if (openItem !== item) {
+              openItem.classList.remove("open");
+              openItem
+                .querySelector(".faq-q")
+                .setAttribute("aria-expanded", "false");
+            }
+          });
+          item.classList.toggle("open", !isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
 
       const popup = document.getElementById("downloadPopup");
       const closePopup = document.getElementById("closePopup");
