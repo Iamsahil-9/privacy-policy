@@ -885,10 +885,9 @@ nav {
   );
   opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none; 
 }
-.feat:hover::before {
-  opacity: 1;
-}
+
 
 /* big feature */
 .feat.feat-big {
