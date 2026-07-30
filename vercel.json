@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/clickmint-web/(.*)",
+      "destination": "/clickmint-web/index.html"
+    }
+  ]
+}
