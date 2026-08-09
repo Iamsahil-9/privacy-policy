@@ -214,32 +214,6 @@ nav {
   box-shadow: 0 0 36px rgba(245, 200, 66, 0.45);
 }
 
-
-.nav-actions{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.nav-login{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:12px 22px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:12px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:700;
-    transition:.25s;
-}
-
-.nav-login:hover{
-    background:rgba(255,255,255,.08);
-    border-color:#f5c842;
-    color:#f5c842;
-}
-
 /* ── HERO ──────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
@@ -536,6 +510,7 @@ nav {
   position: relative;
   z-index: 2;
   width: 100%;
+  transform: perspective(1400px) rotateY(-6deg) rotateX(2deg);
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.1),
@@ -555,7 +530,7 @@ nav {
   background: #0f0a1e;
   border-radius: 32px;
   overflow: hidden;
-  aspect-ratio: 9/17;
+  aspect-ratio: 9/18.5;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -563,12 +538,50 @@ nav {
 
 .phone-notch {
   width: 100px;
-  height: 30px;
+  height: 24px;
   background: #04040a;
   border-radius: 0 0 20px 20px;
   margin: 0 auto;
   position: relative;
   z-index: 5;
+  flex-shrink: 0;
+}
+
+/* glowing elliptical pedestal the phone appears to "stand" on */
+.phone-pedestal {
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  width: 92%;
+  height: 34px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.45),
+    rgba(139, 92, 246, 0.12) 55%,
+    transparent 75%
+  );
+  filter: blur(4px);
+  z-index: 1;
+}
+
+/* floating coin badges beside the phone */
+.float-coin {
+  position: absolute;
+  z-index: 10;
+  font-size: 34px;
+  filter: drop-shadow(0 8px 18px rgba(245, 200, 66, 0.45));
+  animation: floatBadge 3.4s ease-in-out infinite;
+}
+.float-coin-1 {
+  top: 6%;
+  left: -8%;
+}
+.float-coin-2 {
+  bottom: 24%;
+  right: -9%;
+  animation-delay: 0.6s;
 }
 
 /* Authentic app home-screen preview inside phone */
@@ -579,11 +592,12 @@ nav {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 16px 14px 10px;
-  gap: 14px;
+  padding: 14px 12px 8px;
+  gap: 10px;
 }
 
-.app-topbar {
+/* Greeting + notification bell */
+.app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -594,7 +608,7 @@ nav {
   line-height: 1.3;
 }
 .app-hello {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--muted);
 }
 .app-user {
@@ -603,110 +617,289 @@ nav {
   color: #fff;
   font-family: "Syne", sans-serif;
 }
-.app-coin-pill {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 200, 66, 0.22),
-    rgba(245, 200, 66, 0.08)
-  );
-  border: 1px solid rgba(245, 200, 66, 0.35);
-  color: var(--gold);
+.app-bell {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 12px;
-  font-weight: 800;
-  padding: 6px 12px;
+}
+.app-bell-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 13px;
+  height: 13px;
   border-radius: 999px;
+  background: #ef4444;
+  border: 1.5px solid #0f0a1e;
+  color: #fff;
+  font-size: 7px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
 }
 
+/* Coins / cash balance cards */
+.app-balance-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.app-balance-card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.app-balance-label {
+  font-size: 7px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.app-balance-value {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gold);
+}
+.app-balance-cash .app-balance-value {
+  color: #4ade80;
+}
+
+/* Total earned row */
+.app-earned-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 9px;
+  color: var(--body);
+}
+.app-earned-row strong {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.app-earned-row em {
+  font-style: normal;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Section headers inside the app screen */
+.app-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+.app-section-head h4 {
+  font-family: "Syne", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fff;
+}
+.app-section-head span {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: var(--purple2);
+}
+
+/* Categories row */
 .app-cats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
 }
 .app-cat {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  padding: 10px 4px;
+  border-radius: 12px;
+  padding: 7px 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   text-align: center;
 }
 .app-cat span {
-  font-size: 8px;
+  font-size: 6px;
   color: var(--body);
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 600;
 }
 .app-cat-icon {
-  font-size: 16px;
-}
-.app-cat-active {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 200, 66, 0.2),
-    rgba(139, 92, 246, 0.12)
-  );
-  border-color: rgba(245, 200, 66, 0.4);
-}
-.app-cat-active span {
-  color: var(--gold);
-}
-
-.app-invite {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 200, 66, 0.16),
-    rgba(139, 92, 246, 0.1)
-  );
-  border: 1px solid rgba(245, 200, 66, 0.3);
-  border-radius: 14px;
-  padding: 10px 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.app-invite div:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.app-invite strong {
+  justify-content: center;
   font-size: 11px;
-  color: #fff;
 }
-.app-invite span {
-  font-size: 8px;
-  color: var(--muted);
+.cat-blue {
+  background: rgba(56, 189, 248, 0.16);
 }
-.app-invite-arrow {
-  color: var(--gold);
-  font-weight: 800;
+.cat-purple {
+  background: rgba(139, 92, 246, 0.16);
+}
+.cat-gold {
+  background: rgba(245, 200, 66, 0.18);
+}
+.cat-indigo {
+  background: rgba(129, 140, 248, 0.18);
+}
+.cat-sky {
+  background: rgba(34, 211, 238, 0.16);
 }
 
-.app-game-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Top offers list */
+.app-offers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.app-offer-row {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 6px 8px;
+}
+.app-offer-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  color: #fff;
+}
+.logo-blue {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+.logo-purple {
+  background: linear-gradient(135deg, #a78bfa, #6d28d9);
+}
+.logo-red {
+  background: linear-gradient(135deg, #f87171, #b91c1c);
+}
+.app-offer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.app-offer-info strong {
+  font-size: 8.5px;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.app-offer-info span {
+  font-size: 6.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.app-offer-reward {
+  flex-shrink: 0;
+  background: rgba(74, 222, 128, 0.14);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  font-size: 8px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* Games grid */
+.app-games-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
 }
 .app-game-tile {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  padding: 12px 4px;
+  border-radius: 12px;
+  padding: 8px 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  font-size: 18px;
+  gap: 5px;
+}
+.tile-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+.tile-purple {
+  background: linear-gradient(
+    135deg,
+    rgba(196, 132, 252, 0.35),
+    rgba(109, 40, 217, 0.35)
+  );
+}
+.tile-red {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 113, 113, 0.35),
+    rgba(185, 28, 28, 0.35)
+  );
+}
+.tile-blue {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.35),
+    rgba(29, 78, 216, 0.35)
+  );
+}
+.tile-green {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.35),
+    rgba(21, 128, 61, 0.35)
+  );
 }
 .app-game-tile span {
-  font-size: 8px;
+  font-size: 6px;
   color: var(--body);
   font-weight: 600;
+  text-align: center;
 }
 
+/* Bottom nav */
 .app-bottom-nav {
   margin-top: auto;
   display: flex;
@@ -714,66 +907,38 @@ nav {
   align-items: center;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  padding: 10px 0;
+  border-radius: 14px;
+  padding: 8px 0;
 }
 .app-nav-item {
-  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
   opacity: 0.5;
+}
+.app-nav-item small {
+  font-size: 5.5px;
+  font-weight: 700;
+  color: var(--body);
 }
 .app-nav-active {
   opacity: 1;
   filter: drop-shadow(0 0 6px rgba(245, 200, 66, 0.6));
 }
+.app-nav-active small {
+  color: var(--gold);
+}
 
-/* Floating badge on phone */
-.phone-badge {
-  position: absolute;
-  background: rgba(12, 12, 24, 0.9);
-  border: 1px solid rgba(245, 200, 66, 0.3);
-  border-radius: 14px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(12px);
-  z-index: 10;
-  animation: floatBadge 3s ease-in-out infinite;
-  white-space: nowrap;
-}
-.phone-badge.badge-top {
-  top: -20px;
-  right: -30px;
-  animation-delay: 0.5s;
-}
-.phone-badge.badge-bot {
-  bottom: 20px;
-  left: -30px;
-}
 @keyframes floatBadge {
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-6px) rotate(1deg);
+    transform: translateY(-8px) rotate(4deg);
   }
-}
-.badge-icon {
-  font-size: 18px;
-}
-.badge-text {
-  line-height: 1.2;
-}
-.badge-text strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-}
-.badge-text span {
-  font-size: 11px;
-  color: var(--muted);
 }
 
 /* ── SECTION COMMONS ───────────────────────────────────── */
@@ -911,9 +1076,10 @@ nav {
   );
   opacity: 0;
   transition: opacity 0.3s;
-  pointer-events: none; 
 }
-
+.feat:hover::before {
+  opacity: 1;
+}
 
 /* big feature */
 .feat.feat-big {
@@ -1795,10 +1961,7 @@ footer {
   .hero h1 {
     font-size: 56px;
   }
-  .phone-badge.badge-top {
-    display: none;
-  }
-  .phone-badge.badge-bot {
+  .float-coin {
     display: none;
   }
   .section-wrap,
@@ -2062,4 +2225,29 @@ button:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.nav-login:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #f5c842;
+  color: #f5c842;
 }

@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#04040a" />
+    <meta name="theme-color" content="#050507" />
     <meta
       name="description"
       content="Play games, complete tasks, earn reward coins and redeem rewards with ClickMint. Download the latest Android APK now."
@@ -21,7 +21,6 @@
     <link rel="icon" type="image/png" href="/clickmint.webp" />
     <link rel="apple-touch-icon" href="/clickmint.webp" />
 
-    <!-- Preconnect for faster font + asset loading (Core Web Vitals) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -58,7 +57,6 @@
     />
     <link rel="stylesheet" href="style.css" />
 
-    <!-- App schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,15 +66,10 @@
         "operatingSystem": "Android",
         "description": "Play games, complete tasks and earn rewards with ClickMint.",
         "url": "https://www.clickmint.live",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
       }
     </script>
 
-    <!-- Organization schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -88,7 +81,6 @@
       }
     </script>
 
-    <!-- FAQ schema (mirrors the visible FAQ section below) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -149,19 +141,14 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-5VB08GXGZ8");
     </script>
   </head>
   <body>
-    <!-- CURSOR -->
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
-
-    <!-- SCROLL PROGRESS -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- NAV -->
     <nav>
       <div class="nav-logo">Click<span>Mint</span></div>
 
@@ -171,12 +158,42 @@
         <li><a href="#trust">Trust</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
+
       <div class="nav-actions">
-        <a href="/clickmint-web/login" class="nav-login"> 🔐 Login </a>
+        <a href="/login" class="nav-login"> 🔐 Login </a>
 
         <a href="#" class="nav-cta openDownloadPopup"> ⬇ Download APK </a>
       </div>
     </nav>
+
+    <!-- FEATURE TICKER (signature strip) -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">🫧 Bubble Blitz</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">♟️ Multiplayer Chess</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🎰 Spin & Scratch</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🎯 Daily Missions</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">📺 Watch & Earn</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🏅 Leaderboards</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🫧 Bubble Blitz</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">♟️ Multiplayer Chess</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🎰 Spin & Scratch</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🎯 Daily Missions</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">📺 Watch & Earn</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">🏅 Leaderboards</span>
+      </div>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -189,7 +206,7 @@
         <div>
           <div class="hero-eyebrow">
             <span class="dot"></span>
-            Next-Gen Reward Gaming Experience
+            Android App Live Now — Free to Install
           </div>
 
           <h1>
@@ -205,10 +222,15 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#" class="btn-gold openDownloadPopup">
-              ⬇ &nbsp;Download APK
+            <a href="#" class="btn-gold btn-pulse openDownloadPopup">
+              ⬇ &nbsp;Download APK — Free
             </a>
             <a href="#features" class="btn-ghost"> Explore Features → </a>
+          </div>
+
+          <div class="hero-micro">
+            <span>✅ No sign-up fee</span>
+            <span>✅ Installs in under 30 seconds</span>
           </div>
 
           <div class="trust-bar">
@@ -227,57 +249,147 @@
           </div>
         </div>
 
-        <!-- PHONE MOCKUP -->
+        <!-- PHONE MOCKUP — authentic app home screen -->
         <div class="phone-wrap">
           <div class="phone-glow-ring"></div>
 
-          <!-- Floating badges -->
-          <div class="phone-badge badge-top">
-            <div class="badge-icon">🏆</div>
-            <div class="badge-text">
-              <strong>+40 Coins</strong>
-              <span>Level 7 Reward</span>
-            </div>
-          </div>
-
-          <div class="phone-badge badge-bot">
-            <div class="badge-icon">🔥</div>
-            <div class="badge-text">
-              <strong>x3 Combo!</strong>
-              <span>Keep shooting!</span>
-            </div>
-          </div>
+          <span class="float-coin float-coin-1">🪙</span>
+          <span class="float-coin float-coin-2">🪙</span>
 
           <div class="phone-device">
             <div class="phone-screen">
               <div class="phone-notch"></div>
-              <div class="phone-game">
-                <!-- Stars -->
-                <div class="phone-stars" id="phoneStars"></div>
 
-                <!-- Score bar -->
-                <div class="phone-score-bar">
-                  <div>
-                    <div class="phone-score-label">SCORE</div>
-                    <div class="phone-score-val">02840</div>
+              <div class="app-screen">
+                <!-- Greeting + notification bell -->
+                <div class="app-header">
+                  <div class="app-greeting">
+                    <span class="app-hello">Welcome back,</span>
+                    <span class="app-user">User 👋</span>
                   </div>
-                  <div style="text-align: right">
-                    <div class="phone-score-label">LEVEL</div>
-                    <div class="phone-score-val">05</div>
+                  <div class="app-bell">
+                    🔔
+                    <span class="app-bell-badge">3</span>
                   </div>
                 </div>
 
-                <!-- Bubble grid -->
-                <div class="phone-bubbles" id="phoneBubbles"></div>
+                <!-- Coins / Cash balance -->
+                <div class="app-balance-row">
+                  <div class="app-balance-card">
+                    <span class="app-balance-label">Coins Balance</span>
+                    <span class="app-balance-value">🪙 12,450</span>
+                  </div>
+                  <div class="app-balance-card app-balance-cash">
+                    <span class="app-balance-label">Cash Balance</span>
+                    <span class="app-balance-value">💵 ₹350.00</span>
+                  </div>
+                </div>
 
-                <!-- Shooter -->
-                <div class="phone-shooter">
-                  <div class="shooter-barrel"></div>
-                  <div class="shooter-bubble"></div>
+                <!-- Total earned -->
+                <div class="app-earned-row">
+                  <span>Total Earned</span>
+                  <strong>₹2,450.00 <em>›</em></strong>
+                </div>
+
+                <!-- Categories -->
+                <div class="app-section-head">
+                  <h4>Categories</h4>
+                  <span>View All</span>
+                </div>
+                <div class="app-cats">
+                  <div class="app-cat">
+                    <div class="app-cat-icon cat-blue">📈</div>
+                    <span>Trading &amp; Investment</span>
+                  </div>
+                  <div class="app-cat">
+                    <div class="app-cat-icon cat-purple">💳</div>
+                    <span>Credit Cards</span>
+                  </div>
+                  <div class="app-cat">
+                    <div class="app-cat-icon cat-gold">🏦</div>
+                    <span>Banking</span>
+                  </div>
+                  <div class="app-cat">
+                    <div class="app-cat-icon cat-indigo">🛡️</div>
+                    <span>Insurance</span>
+                  </div>
+                  <div class="app-cat">
+                    <div class="app-cat-icon cat-sky">📱</div>
+                    <span>Recharge &amp; Bill</span>
+                  </div>
+                </div>
+
+                <!-- Top offers -->
+                <div class="app-section-head">
+                  <h4>Top Offers</h4>
+                  <span>View All</span>
+                </div>
+                <div class="app-offers-list">
+                  <div class="app-offer-row">
+                    <div class="app-offer-logo logo-blue">U</div>
+                    <div class="app-offer-info">
+                      <strong>Upstox Demat Account</strong>
+                      <span>Open Account &amp; Complete KYC</span>
+                    </div>
+                    <div class="app-offer-reward">₹250</div>
+                  </div>
+                  <div class="app-offer-row">
+                    <div class="app-offer-logo logo-purple">S</div>
+                    <div class="app-offer-info">
+                      <strong>Slice Credit Card</strong>
+                      <span>Apply &amp; Complete KYC</span>
+                    </div>
+                    <div class="app-offer-reward">₹200</div>
+                  </div>
+                  <div class="app-offer-row">
+                    <div class="app-offer-logo logo-red">811</div>
+                    <div class="app-offer-info">
+                      <strong>Kotak 811 Account</strong>
+                      <span>Open Account</span>
+                    </div>
+                    <div class="app-offer-reward">₹150</div>
+                  </div>
+                </div>
+
+                <!-- Games -->
+                <div class="app-section-head">
+                  <h4>Play Games &amp; Earn</h4>
+                  <span>View All</span>
+                </div>
+                <div class="app-games-grid">
+                  <div class="app-game-tile">
+                    <div class="tile-icon tile-purple">🎡</div>
+                    <span>Spin Wheel</span>
+                  </div>
+                  <div class="app-game-tile">
+                    <div class="tile-icon tile-red">🎫</div>
+                    <span>Scratch Card</span>
+                  </div>
+                  <div class="app-game-tile">
+                    <div class="tile-icon tile-blue">🫧</div>
+                    <span>Bubble Blitz</span>
+                  </div>
+                  <div class="app-game-tile">
+                    <div class="tile-icon tile-green">🍉</div>
+                    <span>Fruit Slice</span>
+                  </div>
+                </div>
+
+                <!-- Bottom nav -->
+                <div class="app-bottom-nav">
+                  <div class="app-nav-item app-nav-active">
+                    🏠<small>Home</small>
+                  </div>
+                  <div class="app-nav-item">🏷️<small>Offers</small></div>
+                  <div class="app-nav-item">🎮<small>Games</small></div>
+                  <div class="app-nav-item">👛<small>Wallet</small></div>
+                  <div class="app-nav-item">👤<small>Profile</small></div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="phone-pedestal"></div>
         </div>
       </div>
     </section>
@@ -318,7 +430,6 @@
         </div>
 
         <div class="features-grid">
-          <!-- Big card -->
           <div class="feat feat-big reveal">
             <div>
               <div class="feat-tag">★ MOST POPULAR</div>
@@ -396,6 +507,7 @@
           </div>
 
           <div class="feat reveal">
+            <div class="feat-tag feat-tag-new">🆕 NEW</div>
             <div class="feat-icon-wrap">♟️</div>
             <h3>Play Chess with Friends</h3>
             <p>
@@ -595,25 +707,42 @@
         <div class="cta-orb1"></div>
         <div class="cta-orb2"></div>
 
-        <div class="cta-eyebrow">Ready to Start?</div>
-        <h2>Start Earning<br /><span class="gold">While Gaming</span> 🎮</h2>
-        <p>
-          Install the latest ClickMint APK and enjoy premium reward gaming
-          directly on your Android device. Create your account and start earning
-          reward coins instantly.
-        </p>
+        <div class="cta-content">
+          <div>
+            <div class="cta-eyebrow">Ready to Start?</div>
+            <h2>
+              Start Earning<br /><span class="gold">While Gaming</span> 🎮
+            </h2>
+            <p>
+              Install the latest ClickMint APK and enjoy premium reward gaming
+              directly on your Android device. Create your account and start
+              earning reward coins instantly.
+            </p>
 
-        <div class="cta-buttons">
-          <a
-            href="#"
-            class="btn-gold openDownloadPopup"
-            style="font-size: 18px; padding: 20px 40px"
-          >
-            ⬇ &nbsp;Download APK — Free
-          </a>
-          <a href="#features" class="btn-ghost" style="font-size: 16px">
-            See All Features
-          </a>
+            <div class="cta-buttons">
+              <a
+                href="#"
+                class="btn-gold btn-pulse openDownloadPopup"
+                style="font-size: 18px; padding: 20px 40px"
+              >
+                ⬇ &nbsp;Download APK — Free
+              </a>
+              <a href="#features" class="btn-ghost" style="font-size: 16px">
+                See All Features
+              </a>
+            </div>
+          </div>
+
+          <div class="cta-qr">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=https%3A%2F%2Fwww.mediafire.com%2Ffile%2Fle3o8qyex4xosug%2FClickMint1.0.7.apk%2Ffile"
+              alt="Scan QR code to install the ClickMint APK on your phone"
+              width="150"
+              height="150"
+              loading="lazy"
+            />
+            <span>Scan to install<br />on your phone</span>
+          </div>
         </div>
       </div>
     </section>
@@ -638,6 +767,11 @@
         </div>
       </div>
     </div>
+
+    <!-- DESKTOP FLOATING STICKY CTA -->
+    <a href="#" class="desktop-sticky-cta openDownloadPopup" id="desktopSticky">
+      ⬇ Download APK
+    </a>
 
     <!-- MOBILE STICKY CTA -->
     <div class="mobile-sticky-cta">
@@ -691,56 +825,6 @@
         });
       });
 
-      /* ── Phone stars ── */
-      const starsEl = document.getElementById("phoneStars");
-      for (let i = 0; i < 30; i++) {
-        const s = document.createElement("div");
-        s.className = "phone-star";
-        const size = (Math.random() * 1.5 + 0.5).toFixed(1);
-        s.style.cssText = `
-    width:${size}px;height:${size}px;
-    left:${Math.random() * 100}%;top:${Math.random() * 100}%;
-    --o:${(Math.random() * 0.4 + 0.1).toFixed(2)};
-    --t:${(Math.random() * 2 + 1.5).toFixed(1)}s;
-    --d:${(Math.random() * 2).toFixed(1)}s;
-  `;
-        starsEl.appendChild(s);
-      }
-
-      /* ── Phone bubble grid ── */
-      const COLORS = [
-        "#FF4D6D",
-        "#FFD60A",
-        "#4CC9F0",
-        "#9D4EDD",
-        "#52B788",
-        "#FF9F1C",
-      ];
-      const bubblesEl = document.getElementById("phoneBubbles");
-      const rowData = [6, 7, 6, 5, 6];
-      rowData.forEach((count) => {
-        const row = document.createElement("div");
-        row.className = "bubble-row";
-        for (let i = 0; i < count; i++) {
-          const b = document.createElement("div");
-          b.className = "bub";
-          const c = COLORS[Math.floor(Math.random() * COLORS.length)];
-          b.style.background = `radial-gradient(circle at 35% 30%, ${lighten(c, 0.35)}, ${c}, ${darken(c, 0.3)})`;
-          b.style.color = c;
-          row.appendChild(b);
-        }
-        bubblesEl.appendChild(row);
-      });
-
-      function lighten(hex, a) {
-        const n = parseInt(hex.replace("#", ""), 16);
-        return `rgb(${Math.min(255, (n >> 16) + Math.round(255 * a))},${Math.min(255, ((n >> 8) & 0xff) + Math.round(255 * a))},${Math.min(255, (n & 0xff) + Math.round(255 * a))})`;
-      }
-      function darken(hex, a) {
-        const n = parseInt(hex.replace("#", ""), 16);
-        return `rgb(${Math.max(0, (n >> 16) - Math.round(255 * a))},${Math.max(0, ((n >> 8) & 0xff) - Math.round(255 * a))},${Math.max(0, (n & 0xff) - Math.round(255 * a))})`;
-      }
-
       /* ── Scroll reveal ── */
       const obs = new IntersectionObserver(
         (entries) => {
@@ -756,8 +840,10 @@
       );
       document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 
-      /* ── Nav scroll tint + scroll progress ── */
+      /* ── Nav tint + scroll progress + desktop sticky CTA ── */
       const scrollProgressEl = document.getElementById("scrollProgress");
+      const desktopSticky = document.getElementById("desktopSticky");
+      const heroEl = document.querySelector(".hero");
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         nav.style.background =
@@ -767,6 +853,9 @@
           document.documentElement.scrollHeight - window.innerHeight;
         const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
         scrollProgressEl.style.width = pct + "%";
+
+        const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+        desktopSticky.classList.toggle("show", window.scrollY > heroBottom);
       });
 
       /* ── Animated counter ── */
@@ -785,7 +874,6 @@
           if (start >= target) clearInterval(t);
         }, step);
       }
-
       const counterObs = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -821,42 +909,33 @@
         });
       });
 
+      /* ── Download popup ── */
       const popup = document.getElementById("downloadPopup");
       const closePopup = document.getElementById("closePopup");
-
       function openPopup() {
         popup.classList.add("active");
         document.body.style.overflow = "hidden";
       }
-
       function closeDownloadPopup() {
         popup.classList.remove("active");
         document.body.style.overflow = "";
       }
-
       document.querySelectorAll(".openDownloadPopup").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
           openPopup();
         });
       });
-
       closePopup.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         closeDownloadPopup();
       });
-
       popup.addEventListener("click", (e) => {
-        if (e.target === popup) {
-          closeDownloadPopup();
-        }
+        if (e.target === popup) closeDownloadPopup();
       });
-
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeDownloadPopup();
-        }
+        if (e.key === "Escape") closeDownloadPopup();
       });
     </script>
   </body>
