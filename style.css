@@ -1943,6 +1943,36 @@ footer {
   }
 }
 
+
+@media (max-width: 768px) {
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-login {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo {
+    font-size: 16px !important;
+  }
+
+  .nav-login {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+
+  .nav-cta {
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
 /* ── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 1024px) {
   nav {
@@ -2244,10 +2274,61 @@ button:focus-visible {
   text-decoration: none;
   font-weight: 700;
   transition: 0.25s;
+  flex-direction: row;
 }
 
 .nav-login:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: #f5c842;
   color: #f5c842;
+}
+
+/* ── PLAY GAMES BUTTON ───────────────────────────── */
+.games-btn {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(139, 92, 246, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.14),
+    rgba(192, 132, 252, 0.06)
+  );
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.games-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.games-btn:hover::before {
+  transform: translateX(120%);
+}
+
+.games-btn:hover {
+  border-color: rgba(192, 132, 252, 0.65);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.24),
+    rgba(192, 132, 252, 0.12)
+  );
+  box-shadow:
+    0 0 30px rgba(139, 92, 246, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+}
+
+.games-btn:active {
+  transform: translateY(-1px) scale(0.98);
 }
